@@ -1,0 +1,7 @@
+{
+  "name": "splist-client",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "APGL-3.0",
+  "private": true
+}
