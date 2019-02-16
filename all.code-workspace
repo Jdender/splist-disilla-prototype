@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "server"
+		},
+		{
+			"path": "tui-client"
+		},
+		{
+			"path": "client_api"
+		},
+		{
+			"path": "typings"
+		}
+
+	],
+	"settings": {}
+}
