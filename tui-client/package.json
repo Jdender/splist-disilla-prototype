@@ -1,5 +1,5 @@
 {
-  "name": "splist-client",
+  "name": "splist-tui-client",
   "version": "0.0.0",
   "main": "index.js",
   "license": "APGL-3.0",
