@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+
+  splist:
+    build: .
+    command: yarn ts-node-dev --respawn --files .
+    volumes:
+      - .:/usr/app/
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      NODE_ENV: development
+      POSTGRES_URL: postgres://splist-server@postgres/splist-server
+      REDIS_URL: redis://redis:6379
+
+  postgres:
+    image: postgres:9.6.2-alpine
+    volumes:
+      - ./.data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: splist-server
+
+  redis:
+    image: redis:5-alpine
