@@ -1,7 +1,27 @@
 {
   "name": "splist-server",
   "version": "0.0.0",
-  "main": "index.js",
+  "main": "src/index.ts",
   "license": "APGL-3.0",
-  "private": true
+  "private": true,
+  "scripts": {
+    "up": "docker-compose up",
+    "down": "docker-compose down",
+    "restart": "docker-compose restart node",
+    "build": "docker-compose up --build"
+  },
+  "dependencies": {
+    "apollo-server": "^2.4.2",
+    "graphql": "^14.1.1",
+    "pg": "^7.8.0",
+    "redis": "^2.8.0",
+    "ts-node": "^8.0.2",
+    "type-graphql": "^0.16.0",
+    "typedi": "^0.8.0",
+    "typeorm": "^0.2.13",
+    "typescript": "^3.3.3"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^1.0.0-pre.32"
+  }
 }
