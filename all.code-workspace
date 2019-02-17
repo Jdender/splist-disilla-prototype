@@ -7,7 +7,7 @@
 			"path": "tui-client"
 		},
 		{
-			"path": "client_api"
+			"path": "api-client"
 		},
 		{
 			"path": "typings"
