@@ -21,7 +21,8 @@
     "type-graphql": "^0.16.0",
     "typedi": "^0.8.0",
     "typeorm": "^0.2.13",
-    "typescript": "^3.3.3"
+    "typescript": "^3.3.3",
+    "typings": "^0.0.0"
   },
   "devDependencies": {
     "ts-node-dev": "^1.0.0-pre.32"

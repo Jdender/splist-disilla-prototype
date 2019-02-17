@@ -4,6 +4,8 @@ import { ApolloServer } from 'apollo-server';
 import { Container } from 'typedi';
 import { createConnection, useContainer as useOrm} from 'typeorm';
 
+import { Message } from 'typings';
+
 // Set up typedi
 useGraphql(Container);
 useOrm(Container);
@@ -15,7 +17,7 @@ void async function() {
         url: process.env.POSTGRES_URL,
         synchronize: true,
         entities: [
-            __dirname + '/**/*.entity.ts',
+            __dirname + '/**/*.ent.ts',
         ],
         cache: {
             type: 'redis',
