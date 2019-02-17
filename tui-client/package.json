@@ -1,7 +1,9 @@
 {
-  "name": "splist-tui-client",
+  "name": "tui-client",
   "version": "0.0.0",
   "main": "src/index.ts",
+  "repository": "https://github.com/jdenderplays/splist-prototype.git",
+  "author": "Jdender~ <jdenderplays@gmail.com>",
   "license": "APGL-3.0",
   "private": true,
   "scripts": {

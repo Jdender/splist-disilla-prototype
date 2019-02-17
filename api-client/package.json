@@ -1,7 +1,9 @@
 {
-  "name": "splist-api",
+  "name": "api-client",
   "version": "0.0.0",
   "main": "index.js",
+  "repository": "https://github.com/jdenderplays/splist-prototype.git",
+  "author": "Jdender~ <jdenderplays@gmail.com>",
   "license": "APGL-3.0",
   "private": true
 }
