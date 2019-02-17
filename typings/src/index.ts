@@ -1,4 +1,6 @@
 
-export interface Message {
+export interface IMessage {
 
+    id: number;
+    content: string;
 }

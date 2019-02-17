@@ -4,8 +4,6 @@ import { ApolloServer } from 'apollo-server';
 import { Container } from 'typedi';
 import { createConnection, useContainer as useOrm} from 'typeorm';
 
-import { Message } from 'typings';
-
 // Set up typedi
 useGraphql(Container);
 useOrm(Container);
