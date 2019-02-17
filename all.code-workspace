@@ -11,8 +11,17 @@
 		},
 		{
 			"path": "typings"
+		},
+		{
+			"path": "."
 		}
-
 	],
-	"settings": {}
+	"settings": {
+		"files.exclude": {
+			"server": true,
+			"tui-client": true,
+			"api-client": true,
+			"typings": true
+		}
+	}
 }
