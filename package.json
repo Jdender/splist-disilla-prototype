@@ -1,0 +1,15 @@
+{
+  "name": "splist-prototype",
+  "version": "0.0.0",
+  "main": "null",
+  "repository": "https://github.com/jdenderplays/splist-prototype.git",
+  "author": "Jdender~ <jdenderplays@gmail.com>",
+  "license": "AGPL-3.0",
+  "private": true,
+  "workspaces": [
+    "server",
+    "tui-client",
+    "api-client",
+    "typings"
+  ]
+}
