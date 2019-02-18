@@ -10,7 +10,8 @@
     "up": "ts-node --files ."
   },
   "dependencies": {
-    "vorpal": "^1.12.0"
+    "vorpal": "^1.12.0",
+    "api-client": "^0.0.0"
   },
   "devDependencies": {
     "@types/node": "^11.9.4",

@@ -1,12 +1,17 @@
 import Vorpal = require('vorpal');
+import { Client } from 'api-client';
+import { inspect } from 'util';
 
 const vorpal = new Vorpal();
+const client = new Client('http://localhost:8080');
 
 vorpal
     .command('ping', 'Outputs "Pong!".')
     .action(async () => {
 
-        vorpal.activeCommand.log('Pong!');
+        const result = await client.getHelloWorld()
+
+        vorpal.activeCommand.log(inspect(result));
     });
 
 vorpal
