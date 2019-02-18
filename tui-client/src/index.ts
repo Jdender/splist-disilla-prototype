@@ -6,22 +6,22 @@ const vorpal = new Vorpal();
 const client = new Client('http://localhost:8080');
 
 vorpal
-    .command('ping', 'Outputs "Pong!".')
-    .action(async () => {
+    .command('history  <skip> <take>', 'Page though message history.')
+    .action(async ({ skip, take }) => {
 
-        const result = await client.getHelloWorld()
+        const messages = await client.getHistory(skip, take);
 
-        vorpal.activeCommand.log(inspect(result));
+        messages.map(msg =>
+            vorpal.activeCommand.log(`[${msg.id}]<guest> ${msg.content}`),
+        );
     });
 
 vorpal
-    .catch('[...message]', 'Send a message')
-    .action(async ({message}) => {
-
+    .catch('[message...]', 'Send a message')
+    .action(async ({ message }) => {
+        
+        client.sendMessage(message.join(' '));
     });
-
-vorpal
-    .command('cd <channel id>', 'Change channels')
 
 vorpal
     .delimiter('splist$')
