@@ -4,10 +4,7 @@
 			"path": "server"
 		},
 		{
-			"path": "tui-client"
-		},
-		{
-			"path": "api-client"
+			"path": "client"
 		},
 		{
 			"path": "typings"
@@ -19,8 +16,7 @@
 	"settings": {
 		"files.exclude": {
 			"server": true,
-			"tui-client": true,
-			"api-client": true,
+			"client": true,
 			"typings": true
 		}
 	}
