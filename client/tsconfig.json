@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "locale": "en",
+        "target": "es2018",
+        "lib": ["esnext", "dom"],
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "outDir": "dist",
+        "jsx": "react",
+        "strict": true,
+        "strictPropertyInitialization": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true
+    },
+    "include": ["./src/**/*", "./typings/**/*"],
+    "exclude": ["node_modules"]
+}
