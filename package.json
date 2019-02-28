@@ -8,8 +8,7 @@
   "private": true,
   "workspaces": [
     "server",
-    "tui-client",
-    "api-client",
+    "client",
     "typings"
   ]
 }
