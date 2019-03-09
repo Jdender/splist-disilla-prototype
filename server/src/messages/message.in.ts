@@ -14,7 +14,7 @@ export class MessageSendInput implements Partial<IMessage> {
 export class MessageHistoryArgs {
 
     @Field(type => Int)
-    @Min(0) @Max(100)
+    @Min(0)
     skip: number;
 
     @Field(type => Int)
