@@ -1,8 +1,9 @@
-import { Resolver, Mutation, Arg, Query, Args } from 'type-graphql';
+import { Resolver, Mutation, Arg, Query, Args, Subscription, Root, PubSub, Publisher } from 'type-graphql';
 import { InjectRepository } from 'typeorm-typedi-extensions';
 import { Message } from './Message.ent';
 import { Repository } from 'typeorm';
 import { MessageSendInput, MessageHistoryArgs } from './message.in';
+import { Topics } from '../enums';
 
 @Resolver()
 export class MessageResolver {
@@ -21,13 +22,23 @@ export class MessageResolver {
     }
 
     @Mutation(returns => Message)
-    sendMessage(
-        @Arg('data') newData: MessageSendInput,
+    async sendMessage(
+        @Arg('data') data: MessageSendInput,
+        @PubSub(Topics.MESSAGE_SENT) publish: Publisher<Message>
     ) {
-        const newMessage = this.messageRepo.create(newData);
+        const message = await this.messageRepo.save(this.messageRepo.create(data));
 
-        const message = this.messageRepo.save(newMessage);
+        await publish(message);
 
+        return message;
+    }
+
+    @Subscription({
+        topics: Topics.MESSAGE_SENT,
+    })
+    messageSent(
+        @Root() message: Message,
+    ): Message {
         return message;
     }
 }
