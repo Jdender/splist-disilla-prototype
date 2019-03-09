@@ -1,0 +1,10 @@
+
+export enum Topics {
+    MESSAGE_SENT = 'MESSAGE_SENT',
+}
+
+export enum Permissions {
+    SEND_MESSAGE = 'SEND_MESSAGE',
+    READ_MESSAGE_HISTORY = 'READ_MESSAGE_HISTORY',
+    RECEIVE_NEW_MESSAGES = 'RECEIVE_NEW_MESSAGES',
+}
