@@ -2,24 +2,17 @@ import * as React from 'react';
 import { MessageView } from './messages/MessageView';
 
 export const App = () => (
-    <section className="hero is-fullheight">
-        <div className="hero-head">
-            <h1>Header</h1>
+    <section>
+        <div>
+            <h1>#channel</h1>
         </div>
 
-        <div className="hero-body" style={bodyStyle}>
-            <div className="container">
-                <MessageView/>
-            </div>
+        <div>
+            <MessageView/>
         </div>
 
-        <div className="hero-foot">
-            <div>Footer</div>
+        <div>
+            <div>TODO Send Message</div>
         </div>
     </section>
 );
-
-const bodyStyle = {
-    height: '0',
-    overflow: 'auto',
-};

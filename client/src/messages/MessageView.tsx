@@ -16,11 +16,11 @@ export const MessageView = () => {
     if (error) return <div>Error! {error.message}</div>;
 
     return (
-        <div className='list'>
+        <ul>
             {data.messages.map((msg: any) => (
-                <div key={msg.id} className='list-item'>{msg.content}</div>
+                <li key={msg.id}>{msg.content}</li>
             ))}
-        </div>
+        </ul>
     );
 };
 
