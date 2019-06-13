@@ -11,8 +11,14 @@
     "build": "parcel build src/index.html"
   },
   "dependencies": {
+    "apollo-cache-inmemory": "^1.5.1",
+    "apollo-client": "^2.5.1",
+    "apollo-link": "^1.2.9",
+    "apollo-link-error": "^1.1.8",
+    "apollo-link-http": "^1.5.12",
     "bulma": "^0.7.4",
     "react": "^16.8.3",
+    "react-apollo-hooks": "^0.4.3",
     "react-dom": "^16.8.3"
   },
   "devDependencies": {
