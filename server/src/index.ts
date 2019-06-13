@@ -1,34 +1,28 @@
 import 'reflect-metadata';
-import { buildSchema, useContainer as useGraphql } from 'type-graphql';
+import { buildSchema } from 'type-graphql';
 import { ApolloServer } from 'apollo-server';
 import { Container } from 'typedi';
-import { createConnection, useContainer as useOrm} from 'typeorm';
+import { createConnection, useContainer } from 'typeorm';
 
 // Set up typedi
-useGraphql(Container);
-useOrm(Container);
+useContainer(Container);
 
 void async function() {
 
     await createConnection({
-        type: 'postgres',
-        url: process.env.POSTGRES_URL,
+        type: 'sqlite',
+        database: __dirname + '/.data/db.sqlite',
         synchronize: true,
         entities: [
             __dirname + '/**/*.ent.ts',
         ],
-        cache: {
-            type: 'redis',
-            options: {
-                url: process.env.REDIS_URL,
-            },
-        },
     });
 
     const schema = await buildSchema({
         resolvers: [
           __dirname + '/**/*.res.ts',
         ],
+        container: Container,
     });
 
     const server = new ApolloServer({ 

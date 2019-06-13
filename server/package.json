@@ -7,23 +7,19 @@
   "license": "APGL-3.0",
   "private": true,
   "scripts": {
-    "up": "docker-compose up",
-    "down": "docker-compose down",
-    "restart": "docker-compose restart node",
-    "build": "docker-compose up --build"
+    "up": "ts-node-dev --respawn --files ."
   },
   "dependencies": {
     "apollo-server": "^2.6.3",
     "graphql": "^14.3.1",
-    "pg": "^7.11.0",
-    "redis": "^2.8.0",
+    "sqlite3": "^4.0.9",
     "ts-node": "^8.2.0",
     "type-graphql": "^0.17.4",
     "typedi": "^0.8.0",
     "typeorm": "^0.2.18",
     "typeorm-typedi-extensions": "^0.2.3",
     "typescript": "^3.5.2",
-    "typings": "^2.1.1"
+    "typings": "^0.0.0"
   },
   "devDependencies": {
     "ts-node-dev": "^1.0.0-pre.32"

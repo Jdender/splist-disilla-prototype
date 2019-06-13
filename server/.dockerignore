@@ -1,7 +1,0 @@
-.*
-*.md
-docker-compose.yml
-
-# TODO Get this to work
-../tui-client
-../api-client
