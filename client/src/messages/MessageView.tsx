@@ -1,6 +1,7 @@
 import * as React from 'react';
 import gql from 'graphql-tag';
 import { useQuery } from 'react-apollo-hooks';
+import { IMessage } from 'typings';
 
 export const MessageView = () => {
 
@@ -17,7 +18,7 @@ export const MessageView = () => {
 
     return (
         <ul>
-            {data.messages.map((msg: any) => (
+            {data.messages.map((msg: IMessage) => (
                 <li key={msg.id}>{msg.content}</li>
             ))}
         </ul>
