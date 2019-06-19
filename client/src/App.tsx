@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { MessageView } from './messages/MessageView';
+import { MessageInput } from './messages/MessageInput';
 
 export const App = () => (
     <section>
@@ -12,7 +13,7 @@ export const App = () => (
         </div>
 
         <div>
-            <div>TODO Send Message</div>
+            <MessageInput/>
         </div>
     </section>
 );

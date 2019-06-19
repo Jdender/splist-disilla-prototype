@@ -3,12 +3,23 @@ import { KeyboardEvent } from 'react';
 import gql from 'graphql-tag';
 import { useMutation } from 'react-apollo-hooks';
 
-export const MessageSend = () => {
+export const MessageInput = () => {
 
-    const onKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
+    const sendMessage = useMutation(SEND_MESSAGE);
+
+    const onKeyPress = async (event: KeyboardEvent<HTMLInputElement>) => {
 
         if (event.key !== 'Enter') return;
+        
+        await sendMessage({
+            variables: {
+                data: {
+                    content: event.currentTarget.value,
+                },
+            },
+        });
 
+        event.currentTarget.value = '';
     };
 
     return (
