@@ -6,6 +6,9 @@
   "author": "Jdender~ <jdenderplays@gmail.com>",
   "license": "APGL-3.0",
   "private": true,
+  "browserslist": [
+    "last 1 Chrome version"
+  ],
   "scripts": {
     "up": "parcel src/index.html --port 8081",
     "build": "parcel build src/index.html"
@@ -16,9 +19,11 @@
     "apollo-link": "^1.2.9",
     "apollo-link-error": "^1.1.8",
     "apollo-link-http": "^1.5.12",
+    "apollo-link-ws": "^1.0.18",
     "react": "^16.8.3",
     "react-apollo-hooks": "^0.4.3",
     "react-dom": "^16.8.3",
+    "subscriptions-transport-ws": "^0.9.16",
     "typings": "^0.0.0"
   },
   "devDependencies": {
