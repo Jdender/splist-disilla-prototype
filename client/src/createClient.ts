@@ -1,10 +1,13 @@
 import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
+import { WebSocketLink } from 'apollo-link-ws';
+import { split } from 'apollo-link';
+import { getMainDefinition } from 'apollo-utilities';
 import { onError } from 'apollo-link-error';
 import { ApolloLink } from 'apollo-link';
 
-export const createClient = ({ httpUri }: CreateClientOptions) => {
+export const createClient = (options: CreateClientOptions) => {
 
     const errorLink = onError(({ graphQLErrors, networkError }) => {
 
@@ -20,12 +23,32 @@ export const createClient = ({ httpUri }: CreateClientOptions) => {
     });
     
     const httpLink = new HttpLink({
-        uri: httpUri,
+        uri: options.httpUri,
     });
+
+    const wsLink = new WebSocketLink({
+        uri: options.wsUri,
+        options: {
+            reconnect: true,
+        },
+    });
+
+    // Use ws if subscription, http for everything else
+    const splitLink = split(
+        ({ query }) => {
+            const definition = getMainDefinition(query);
+            return (
+                definition.kind === 'OperationDefinition' &&
+                definition.operation === 'subscription'
+            );
+        },
+        wsLink,
+        httpLink,
+    );
     
     const link = ApolloLink.from([
         errorLink,
-        httpLink,
+        splitLink,
     ]);
 
     const cache = new InMemoryCache();
@@ -40,4 +63,5 @@ export const createClient = ({ httpUri }: CreateClientOptions) => {
 
 interface CreateClientOptions {
     httpUri: string;
+    wsUri: string;
 }
