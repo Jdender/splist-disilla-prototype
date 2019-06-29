@@ -5,7 +5,8 @@ import { createClient } from './createClient';
 import { App } from './App';
 
 const client = createClient({
-    httpUri: 'http://localhost:8080'
+    httpUri: 'http://localhost:8080/graphql',
+    wsUri: 'ws://localhost:8080/graphql',
 });
 
 const Root = () => (
