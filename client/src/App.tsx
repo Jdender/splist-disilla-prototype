@@ -5,7 +5,8 @@ import { MessageInput } from './messages/MessageInput';
 export const App = () => (
     <section>
         <div>
-            <h1>#channel</h1>
+            {/* NOTE: Use <select> for channels when time comes */}
+            <h1>#general</h1>
         </div>
 
         <div>
