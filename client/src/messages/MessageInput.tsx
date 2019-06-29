@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import { KeyboardEvent } from 'react';
 import gql from 'graphql-tag';
 import { useMutation } from 'react-apollo-hooks';
@@ -7,24 +8,28 @@ export const MessageInput = () => {
 
     const sendMessage = useMutation(SEND_MESSAGE);
 
-    const onKeyPress = async (event: KeyboardEvent<HTMLInputElement>) => {
-
-        if (event.key !== 'Enter') return;
-        
-        await sendMessage({
-            variables: {
-                data: {
-                    content: event.currentTarget.value,
-                },
-            },
-        });
-
-        event.currentTarget.value = '';
-    };
+    const [content, setContent] = useState('');
 
     return (
         <input 
-            onKeyPress={onKeyPress}
+            // Two way bind
+            value={content}
+            onChange={e => setContent(e.target.value)}
+
+            onKeyPress={async e => {
+
+                if (e.key !== 'Enter') return; // Run only on enter
+
+                await sendMessage({
+                    variables: {
+                        data: {
+                            content,
+                        },
+                    },
+                });
+
+                setContent(''); // Clear input after
+            }}
         >
         </input>
     )
