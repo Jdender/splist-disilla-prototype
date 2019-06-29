@@ -11,7 +11,7 @@ void async function() {
 
     await createConnection({
         type: 'sqlite',
-        database: __dirname + '/.data/db.sqlite',
+        database: __dirname + '/../.data/db.sqlite',
         synchronize: true,
         entities: [
             __dirname + '/**/*.ent.ts',

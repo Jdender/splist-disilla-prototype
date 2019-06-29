@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { KeyboardEvent } from 'react';
 import gql from 'graphql-tag';
 import { useMutation } from 'react-apollo-hooks';
 
