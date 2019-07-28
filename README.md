@@ -1,4 +1,4 @@
-# Splist/Disilla Prototype
+# Splist / Disilla Prototype
 
 An attempt at a more lightweight discord that focuses on communication without all the extra things.
 
