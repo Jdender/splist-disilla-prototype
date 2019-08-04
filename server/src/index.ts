@@ -27,9 +27,10 @@ void async function() {
 
     const server = new ApolloServer({ 
         schema,
-        playground: true,
+        playground: false,
     });
     
     const { url } = await server.listen(8080);
-    console.log(`Server is running, GraphQL Playground available at ${url}`);
+    //console.log(`Server is running, GraphQL Playground available at ${url}`);
+    console.log(`Server is running\nAvailable at ${url}`);
 }();
